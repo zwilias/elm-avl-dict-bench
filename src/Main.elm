@@ -381,6 +381,11 @@ renderGroupedReports filters groupedReports =
                 groupedReports
 
 
+roundFloat : Float -> Float
+roundFloat =
+    round >> toFloat
+
+
 renderGraph :
     Plot.State
     -> List FilterEntry
@@ -409,7 +414,9 @@ renderGraph state filters reports =
                                                 )
                                        )
                         in
-                            ( logBase 10 multiplier, result * multiplier )
+                            ( roundFloat <| logBase 10 multiplier
+                            , roundFloat <| result * multiplier
+                            )
                     )
 
         left : List Plot.Point
