@@ -1,7 +1,19 @@
 module Benchmark exposing (..)
 
-import Json.Decode exposing (string, list, Decoder, at, succeed, int, float)
+import Json.Decode
+    exposing
+        ( string
+        , list
+        , Decoder
+        , at
+        , succeed
+        , int
+        , float
+        , andThen
+        , nullable
+        )
 import Json.Decode.Pipeline exposing (decode, required, requiredAt, hardcoded)
+import Maybe.Extra as M
 
 
 type alias ReportListEntry =
@@ -43,7 +55,8 @@ type alias Benchmark =
 
 decodeReportList : Decoder (List ReportListEntry)
 decodeReportList =
-    list decodeReportListEntry
+    list (nullable decodeReportListEntry)
+        |> andThen (M.values >> decode)
 
 
 decodeReportListEntry : Decoder ReportListEntry
