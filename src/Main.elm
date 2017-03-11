@@ -231,6 +231,10 @@ For each of these sizes, we look at all the samples that were submitted for that
 The next two columns count the number of relevant operations per second we managed to execute. As such, higher is better. As noted in the methodology section above, this is the raw data multiplied by the size of the dictionary, so we can safely go from _number of `fromList`_ operations to _number of `insert`_ operations. This does include a negligible overhead from the fold calls these operations are based on.
 
 The *delta*, finally, measures the performance delta as a percentage. `2%` in this case means that `Dict.AVL` performs 2% _more_ operations than `Dict`.
+
+## Browsers and platforms
+
+Note that you can filter out all samples from a certain browser or platform by toggling the badge. Since any sample that matches a disabled badge will be filtered out, mixing browser and platform filters will probably give you some odd/unexpected results :)
     """ ]
         ]
 
