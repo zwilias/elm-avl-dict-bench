@@ -232,6 +232,8 @@ The next two columns count the number of relevant operations per second we manag
 
 The *delta*, finally, measures the performance delta as a percentage. `2%` in this case means that `Dict.AVL` performs 2% _more_ operations than `Dict`.
 
+On the graphs, **blue lines** represent `Dict.AVL`, **red lines** represent `Dict`. Higher is better, and numbers are in *operations/second*.
+
 ## Browsers and platforms
 
 Note that you can filter out all samples from a certain browser or platform by toggling the badge. Since any sample that matches a disabled badge will be filtered out, mixing browser and platform filters will probably give you some odd/unexpected results :)
